@@ -16,7 +16,7 @@ public class Parque implements IParque {
 	}
 
 	@Override
-	public synchronized void entrarAlParque(String puerta) { // TODO
+	public synchronized void entrarAlParque(String puerta) {
 
 		// Si no hay entradas por esa puerta, inicializamos
 		if (contadoresPersonasPuerta.get(puerta) == null) {
@@ -81,7 +81,7 @@ public class Parque implements IParque {
 		assert contadorPersonasTotales >= 0 : "Ha de haber persona/s dentro para poder salir";
 	}
 
-	protected void comprobarAntesDeEntrar() { // TODO
+	protected void comprobarAntesDeEntrar() {
 		if(maxPersonas == contadorPersonasTotales) {
 			try {
 				wait();
@@ -92,7 +92,7 @@ public class Parque implements IParque {
 	}
 
 
-	protected void comprobarAntesDeSalir(){		// TODO
+	protected void comprobarAntesDeSalir(){
 		while(contadorPersonasTotales <= 0) {
 			try {
 				wait();
