@@ -9,6 +9,9 @@ public class Parque implements IParque {
 	private int maxPersonas;
 	private Hashtable<String, Integer> contadoresPersonasPuerta;
 
+	/**
+	 * Contructor en el que especificamos cual es el aforo maximo de personas en el parque
+	 */
 	public Parque(int maxP) {
 		maxPersonas = maxP;
 		contadorPersonasTotales = 0;
@@ -36,6 +39,11 @@ public class Parque implements IParque {
 
 	}
 
+	/**
+	 * Este metodo es exactamente igual a entrarAlParque lo unico que tiene que restar
+	 * al contadorTotalPersonas para quitar cada vez que salga del parque igual que al contador de 
+	 * de cada puerta.
+	 */
 	@Override
 	public synchronized void salirDelParque(String puerta) {
 		if (contadoresPersonasPuerta.get(puerta) == null) {
@@ -73,14 +81,21 @@ public class Parque implements IParque {
 		}
 		return sumaContadoresPuerta;
 	}
-
+	
+	/**
+	 * 
+	 */
 	protected void checkInvariante() {
 		assert sumarContadoresPuerta() == contadorPersonasTotales
 				: "INV: La suma de contadores de las puertas debe ser igual al valor del contador del parte";
 		assert contadorPersonasTotales <= maxPersonas : "El maximo numero de personas en el parque es 50";
 		assert contadorPersonasTotales >= 0 : "Ha de haber persona/s dentro para poder salir";
 	}
-
+	
+	/**
+	 * Metodo de comprobarAntesDeEntrar solo tenemos que comprobar que el maximo de personar que puede entrar
+	 * al parque no sea superado por el contador de personas que hay dentro del parque
+	 */
 	protected void comprobarAntesDeEntrar() {
 		if(maxPersonas == contadorPersonasTotales) {
 			try {

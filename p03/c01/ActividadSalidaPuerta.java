@@ -4,8 +4,13 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-public class ActividadSalidaPuerta implements Runnable{
+/**
+ * 
+ * Es exactamente la misma clase que EntrarPuerta salvo cambiendo la variable NUMESALIDAS
+ * y en el metodo run cambiando parque.salirDelparque
+ *
+ */
+public class ActividadSalidaPuerta implements Runnable {
 
 	private static final int NUMESALIDAS = 20;
 	private String puerta;
@@ -18,10 +23,10 @@ public class ActividadSalidaPuerta implements Runnable{
 
 	@Override
 	public void run() {
-		for (int i = 0; i < NUMESALIDAS; i ++) {
+		for (int i = 0; i < NUMESALIDAS; i++) {
 			try {
 				parque.salirDelParque(puerta);
-				TimeUnit.MILLISECONDS.sleep(new Random().nextInt(5)*1000);
+				TimeUnit.MILLISECONDS.sleep(new Random().nextInt(5) * 1000);
 			} catch (InterruptedException e) {
 				Logger.getGlobal().log(Level.INFO, "Entrada interrumpida");
 				Logger.getGlobal().log(Level.INFO, e.toString());
