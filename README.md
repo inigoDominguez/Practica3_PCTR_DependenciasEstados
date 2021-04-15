@@ -1,3 +1,5 @@
 # Practica3_PCTR_DependenciasEstados
 
-Plantilla para la realización de la tercera práctica de la asignatura de Programación Concurrente y Tiempo Real del Grado en Ingeniería Informática de la Universidad de Burgos.
+Practica 3 de Programacion Concurrente y de Tiempo Real.
+
+Realizada por I�igo Dom�nguez Esparza y Alvaro Arnaiz Le�n.
